@@ -1,28 +1,32 @@
 @extends('layouts.master')
 
 @section('content')
-<form action="{{route('post.store')}}" method="post">
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      <label for="title">Título</label>
-      <input type="text" class="form-control" name="title" id="title">  
-    </div>
+  @include('fragments.validation-errors')
+<h1>Post</h1>
+<form action="{{route("post.store") }}" method="POST">
+  @csrf
+  <div class="form-group">
+    <label for="exampleInputEmail1">Titulo</label>
+    <input type="text" class="form-control" id="title" name="title" aria-describedy="email">
+  </div>
 
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
-    </div>
 
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+    <div class="form-group">
+      <label for="exampleInputPassword1"> Url Limpia</label>
+      <input type="text" class="form-control" name="url_clean" id="exampleInputPassword1">
+    
     </div>
 
     <div class="form-group">
-      <label for="content">Contenido</label>
-      <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+      <label for="exampleInputPassword1">Contenido</label>
+      <textarea class="form-control" name="content" id="content"></textarea>
     </div>
+   
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Enviar</button>
   </form>
+
+  
 @endsection
+
+
