@@ -1,22 +1,21 @@
 
     <div class="form-group">
-      <label for="exampleInputEmail1">Titulo</label>
-      <input type="text" class="form-control" id="title" name="title" aria-describedy="email">
+      <label for="title">Titulo</label>
+      <input type="text" name = "title"class="form-control" id="title" value="{{ old('title') }}">
     </div>
   
   
       <div class="form-group">
-        <label for="exampleInputPassword1"> Url Limpia</label>
-        <input type="text" class="form-control" name="url_clean" id="exampleInputPassword1">
+        <label for="url_clean"> Url Limpia:</label>
+        <input type="text" name= "url_clean"class="form-control" id="url_clean" value ="{{ old('url_clean') }}">
       
       </div>
   
       <div class="form-group">
-        <label for="exampleInputPassword1">Contenido</label>
-        <textarea class="form-control" name="content" id="content"></textarea>
+        <label for="content">Contenido: </label>
+        <textarea name = "content"class="form-control"> {{old('content') }}</textarea>
       </div>
      
-  
       <button type="submit" class="btn btn-primary">Enviar</button>
     </form>
   
