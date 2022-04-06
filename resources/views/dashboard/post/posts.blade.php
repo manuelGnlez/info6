@@ -5,8 +5,6 @@
 
 <a href= "{{ route('post.create') }}" class= "btn btn-success">Create</a>
 
-
-
 <table class="table table-hover">
   <thead>
     <tr>
@@ -24,17 +22,20 @@
         <td>#</td>
         <td>
           <a href="{{route('post.edit', $post->id) }}"class = "btn btn-secondary">Edit</a>
-
         </td>
         <td>
-          <a href=""class = "btn btn-danger">Delete</a>
-
+          <form action="{{ route('post.destroy', $post->id)}}" method="post">
+              @csrf
+              @method("DELETE")
+              <button type="submit" class = "btn btn-danger">Delete</button>
+          </form>
         </td>
       </tr>
       @endforeach
-  <tbody>
-   
-    
-</table>
-@endsection
 
+
+  <tbody>
+</table>
+
+<div class="mt-3">{{ $posts->links() }}</div>
+@endsection
