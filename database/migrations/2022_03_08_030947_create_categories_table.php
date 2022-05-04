@@ -18,6 +18,8 @@ return new class extends Migration
             $table->string('title', 500);
             $table->string('url_clean', 500);
             $table->timestamps();
+
+            $table->softDeletes();
         });
     }
 

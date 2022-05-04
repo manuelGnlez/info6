@@ -34,7 +34,7 @@ class CategoryController extends Controller
     {
         //
         return view('dashboard.category.create', [
-            'post' => new Categories()
+            'category' => new Categories()
         ]);
     }
 
@@ -70,7 +70,7 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Categories $category)
     {
         //
         return view ('dashboard.category.edit', [
@@ -85,9 +85,14 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Categories $category)
     {
         //
+                //
+        //Post::find($id)->update($request->validated());
+        $category->update($request->validated());
+        return back()->with('status','Category updated successfully');
+        //dd($request->validated());
     }
 
     /**
