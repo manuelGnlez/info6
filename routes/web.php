@@ -18,10 +18,14 @@ use App\Http\Controllers\CategoryController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::middleware(['admin'])->group(function () {
 
-Route::resource('/post', PostController::class);
+    //
+
+Route::resource('/post', PostController::class)->middleware('auth');
 
 Route::resource('/category', CategoryController::class);
+});
 
 Auth::routes();
 
